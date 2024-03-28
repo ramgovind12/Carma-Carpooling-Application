@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h1>Welcome, {{ user.username }}!</h1>
+<p>This is the profile page for the superuser "{{ user.username }}".</p>
+<p>Here, you can display any additional information or actions specific to superusers.</p>
+<!-- Add any additional content specific to superusers -->
+{% endblock content %}
+    

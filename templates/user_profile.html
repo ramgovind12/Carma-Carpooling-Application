@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="container mx-auto mt-8 p-4 flex justify-between">
+    <!-- Left box for user details -->
+    <section class="bg-white rounded-lg shadow-md p-6 w-1/2 mr-4">
+        <div class="flex flex-col items-center mb-6">
+            <img src="{{profile.profile_picture.url}}" alt="User Avatar" class="w-40 h-40 rounded-full mb-2">
+            <p class="text-gray-600 text-2xl">{{profile.name}} </p><br>
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</button>
+
+        </div>
+        <div>
+        </div>
+        <!-- <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2">Bio</h3>
+            <p class="text-gray-700">{{ user_profile.bio }}</p>
+        </div> -->
+        <br>
+        <div class="flex justify-center">
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mr-4">
+                <svg class="h-8 w-8 text-red-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                </svg>
+                {{ profile.email }}
+            </button>
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                <svg class="h-8 w-8 text-red-500 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                </svg>
+                {{ profile.phone_number }}
+            </button>
+        </div>
+        
+    </section>
+
+    <!-- Right box for car details -->
+    <section class="bg-white rounded-lg shadow-md p-6 w-1/2 ml-4">
+        
+        <div>
+            <!-- <h3 class="text-xl font-semibold mb-2">Car Image</h3> -->
+            <img src="{{profile.car_image.url}}" alt="Car Image" class=" rounded-lg shadow-md w-full">
+        </div>
+        <br>
+        <div class="mb-6">
+            <h3 class="text-xl font-semibold mb-2 text-gray-600">Car Details</h3>
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                Car
+            </button>
+            <button class="bg-blue-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                {{ profile.car_name }}
+            </button><br><br>
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                Car Make
+            </button>
+            <button class="bg-blue-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                {{ profile.car_make }}
+            </button><br><br>
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                Fuel Type
+            </button>
+            <button class="bg-green-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-xl inline-flex items-center">
+                {{ profile.fuel_type }}
+            </button>
+            
+        </div>
+    </section>
+</main>
+{% endblock content %}

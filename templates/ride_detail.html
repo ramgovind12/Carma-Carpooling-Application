@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+<br><br>
+<div class="container mx-auto mt-3 ">
+    
+    <br>
+    <div class="flex items-center justify-between mb-2">
+        <a href="{% url 'carmaapp:user_profile' username=ride.driver.userprofile.name %}">
+            <img class="w-10 h-10 rounded-full mr-2" src="{{ ride.driver.userprofile.profile_picture.url }}" alt="{{ ride.driver.username }}">
+            <div class="font-bold ml-1">{{ride.driver.userprofile.name}} </div>
+        </a>
+        <div>
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Follow</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+            <img src="{{ ride.car.car_image.url }}" alt="{{ ride.car.car_name }}" class="w-full h-auto rounded-lg">
+        </div>
+        
+        <div class="flex flex-col justify-between mr-4">
+            <h2 class="text-3xl font-semibold text-gray-800">{{ride.departure_location}} </h2>
+                
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="10" stroke="green" class="w-10 h-10">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+            </svg>            
+                       
+            
+            <h2 class="text-3xl font-semibold text-gray-800">{{ride.destination}} </h2>
+            
+            <p class="text-gray-600 mt-2">{{ride.car.fuel_type}} Engine</p>
+            <div class="flex items-center mt-4">
+                <!-- Star icons for rating -->
+                <svg fill="#FFCC00" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.64l-5.61 3.322 1.068-6.259L.28 6.218l6.259-.908L9 0l2.46 5.31 6.26.908-4.127 3.484 1.067 6.26z"/>
+                </svg>
+                <svg fill="#FFCC00" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.64l-5.61 3.322 1.068-6.259L.28 6.218l6.259-.908L9 0l2.46 5.31 6.26.908-4.127 3.484 1.067 6.26z"/>
+                </svg>
+                <svg fill="#FFCC00" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.64l-5.61 3.322 1.068-6.259L.28 6.218l6.259-.908L9 0l2.46 5.31 6.26.908-4.127 3.484 1.067 6.26z"/>
+                </svg>
+                <svg fill="#FFCC00" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.64l-5.61 3.322 1.068-6.259L.28 6.218l6.259-.908L9 0l2.46 5.31 6.26.908-4.127 3.484 1.067 6.26z"/>
+                </svg>
+                <svg fill="#FFCC00" height="24" viewBox="0 0 18 18" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 12.64l-5.61 3.322 1.068-6.259L.28 6.218l6.259-.908L9 0l2.46 5.31 6.26.908-4.127 3.484 1.067 6.26z"/>
+                </svg>
+                <span class="ml-1">5.0</span>
+                <span class="text-gray-600 text-sm ml-2">(42 reviews)</span>
+            </div>
+            <div class="flex items-center mt-4">
+                <span class="text-1xl font-semibold text-gray-800">Ride started at {{ride.time}} </span>
+            </div>
+            <br>
+            <div class="flex items-center">
+                <div class="w-12 h-12 flex items-center justify-center bg-yellow-500 rounded-lg text-white text-2xl font-bold">
+                    {{ ride.available_seats }}
+                </div>
+            
+                <div class="text-gray-600 text-sm ml-2">seats available</div>
+            </div>
+            
+            
+            <div class="flex items-center mt-4">
+                <span class="text-2xl font-semibold text-gray-800">&#8377 {{ride.price}} </span>
+            </div>
+            <div class="flex items-center mt-4">
+                <!-- Size options -->
+                <label for="size" class="mr-2">Select Seat:</label>
+                <select id="size" name="size" class="border border-gray-300 rounded-md p-2">
+                    <option value="40.5">40.5</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    
+                </select>
+                <button class="bg-green-600 text-white px-4 py-2 ml-4 rounded-md">Confirm</button>
+            </div>
+            
+            
+            <!-- <div class="flex items-center mt-4">
+                <span class="text-gray-600">Free delivery on order over $30.00</span>
+            </div> -->
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+    
